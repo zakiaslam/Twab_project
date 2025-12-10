@@ -1,10 +1,10 @@
 function init(){
     console.log("Initializing...");
     try{
-        const button=document.getElementById("submit");
+        const button=document.getElementById("profile");
         button.onclick = function(e) {
 
-            onsubmit(e);
+            onProfile(e);
             console.log("Submitted");
         };
 
@@ -26,9 +26,9 @@ function sendAxiosQuery(url, data) {
             alert (JSON.stringify(response));
         })
 }
-function onsubmit(event){
+function onProfile(event){
     event.preventDefault();
-    onSubmitAux(event, '/query')
+    sendAxiosQuery( '/profile',null);
 }
 function onSubmitQuery(event){
     onSubmitAux(event, '/query')

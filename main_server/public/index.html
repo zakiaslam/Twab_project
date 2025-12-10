@@ -8,21 +8,18 @@
     <script src="/javascripts/index.js"></script>
 </head>
 <body onload="init()">
-<h1>Insert A Character hiiiii</h1>
-<!--first_name: {type: String, required: true, max: 100},
-        family_name: {type: String, required: true, max: 100},
-        dob-->
-<form id="xForm" >
-    <label for="first_name">Name:</label>
-    <label for="first_name">Name:</label>
-    <input type="text" id="first_name" name="first_name"><br><br>
-    <label for="family_name">Surname:</label>
-    <input type="text" id="family_name" name="family_name"><br><br>
+<h2>Dataset Viewer</h2>
+<input type="text" id="search" placeholder="Search folders/files..." onkeyup="filterDataset()">
+<button onclick="showDataset()">Show Dataset</button>
+
+<div id="dataset"></div>
+
     <button id="submit_q" value="Submit">Submit</button>
-</form>
+
+<button id="profile"> profile</button>
 <div id="resultsDiv">
     <p id="results"></p>
 </div>
-<p><a href="/index.html">Insert into the database  </a></p>
+
 </body>
 </html>
