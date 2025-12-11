@@ -41,19 +41,13 @@ function character_anime_works(event){
 // Wait until the DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
     const searchbtn = document.getElementById("submitbtn");
-
-    // Make sure the button exists
     if (searchbtn) {
         searchbtn.onclick = searchbtnfun;
     }
-
     function searchbtnfun(event) {
         try {
             event.preventDefault();
             const query = document.getElementById("searchInput").value;
-            console.log("Submitted:", query);
-
-
             window.location.href = `/character_anime_works?search=${encodeURIComponent(query)}`;
         } catch (e) {
             console.log(e);
@@ -63,17 +57,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// function onSubmitAux(event, url){
-//     // The .serializeArray() method creates a JavaScript array of objects
-//     // https://api.jquery.com/serializearray/
-//     const formArray= $("form").serializeArray();
-//     console.log("formArray", formArray);
-//     const data={};
-//     for (let index in formArray){
-//         data[formArray[index].name]= formArray[index].value;
-//     }
-//     // const data = JSON.stringify($(this).serializeArray());
-//     sendAxiosQuery(url, data);
-//     // prevent the form from reloading the page (normal behaviour for forms)
-//     event.preventDefault()
-// }
