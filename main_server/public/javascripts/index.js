@@ -43,22 +43,24 @@ function character_anime_works(event){
 document.addEventListener("DOMContentLoaded", () => {
     const searchbtn = document.getElementById("submitbtn");
 
+    // Make sure the button exists
     if (searchbtn) {
         searchbtn.onclick = searchbtnfun;
     }
 
     function searchbtnfun(event) {
-        event.preventDefault(); // prevent form submission
-        const searchInput = document.getElementById("searchInput");
-        if (searchInput) {
-            console.log("Submitted:", searchInput.value);
-        } else {
-            console.log("searchInput not found!");
+        try {
+            event.preventDefault();
+            const query = document.getElementById("searchInput").value;
+            console.log("Submitted:", query);
+
+
+            window.location.href = `/character_anime_works?search=${encodeURIComponent(query)}`;
+        } catch (e) {
+            console.log(e);
         }
     }
 });
-
-
 
 
 
