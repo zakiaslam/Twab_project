@@ -38,6 +38,30 @@ function character_anime_works(event){
     event.preventDefault();
     window.location.href = '/character_anime_works';
 }
+
+// Wait until the DOM is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    const searchbtn = document.getElementById("submitbtn");
+
+    if (searchbtn) {
+        searchbtn.onclick = searchbtnfun;
+    }
+
+    function searchbtnfun(event) {
+        event.preventDefault(); // prevent form submission
+        const searchInput = document.getElementById("searchInput");
+        if (searchInput) {
+            console.log("Submitted:", searchInput.value);
+        } else {
+            console.log("searchInput not found!");
+        }
+    }
+});
+
+
+
+
+
 // function onSubmitAux(event, url){
 //     // The .serializeArray() method creates a JavaScript array of objects
 //     // https://api.jquery.com/serializearray/
