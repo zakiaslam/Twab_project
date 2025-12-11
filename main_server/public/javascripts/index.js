@@ -1,5 +1,4 @@
 function init(){
-    console.log("Initializing...");
     try{
         const button=document.getElementById("profile");
         button.onclick = function(e) {
