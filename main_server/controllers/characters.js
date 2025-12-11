@@ -1,6 +1,11 @@
 import Model from '../models/characters.js';
-// import { Profile } from '../models/characters.js';
-export async function query(filter = {}) {
-    // Exclude _id, return plain JS objects
-    return Model.find(filter).lean();
+
+// Get paginated results
+export async function query({ skip = 0, limit = 10, filter = {} } = {}) {
+    return Model.find(filter).skip(skip).limit(limit).lean();
+}
+
+// Get total count for pagination
+export async function count(filter = {}) {
+    return Model.countDocuments(filter);
 }

@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-
+<head>
+    <title>Query A Character</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/javascripts/index.js"></script>
+</head>
+<body onload="init()">
+<div id="header">
+    <h1>Dataset Viewer</h1>
+    <div class="button-row">
+        <button id="character_anime_works">character_anime_works</button>
+        <button id="character_nicknames">character_nicknames</button>
+        <button id="characters">characters</button>
+        <button id="favs">favs</button>
+        <button id="person_alternate_names">person_alternate_names</button>
+        <button id="person_anime_works">person_anime_works</button>
+        <button id="person_details">person_details</button>
+        <button id="person_voice_works">person_voice_works</button>
+        <button id="profiles">profiles</button>
+        <button id="ratings">ratings</button>
+        <button id="recommendations">recommendations</button>
+        <button id="stats">stats</button>
+    </div>
+</div>
 
-    {{{body}}}
-  </body>
+
+
+<div id="dataset"></div>
+
+<button id="submit_q" value="Submit">Submit</button>
+
+<button id="profile"> profile</button>
+
+
+
+
+
+<div >
+    <p id="results"></p>
+
+</div>
+{{{body}}}
+
+</body>
 </html>
