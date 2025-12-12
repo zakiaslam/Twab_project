@@ -1,14 +1,27 @@
-import Model from '../models/characters.js';
+import { CharacterAnimeWorksModel, CharacterNicknamesModel } from '../models/characters.js';
 
-// Get paginated results
-export async function query({ skip = 0, limit = 10, filter = {} } = {}) {
-    return Model.find(filter).skip(skip).limit(limit).lean();
+
+export async function queryAnimeWorks({ skip = 0, limit = 10, filter = {} } = {}) {
+    return CharacterAnimeWorksModel.find(filter).skip(skip).limit(limit).lean();
 }
 
-// Get total count for pagination
-export async function count(filter = {}) {
-    return Model.countDocuments(filter);
+export async function countAnimeWorks(filter = {}) {
+    return CharacterAnimeWorksModel.countDocuments(filter);
 }
-export async function searchName(filter = {}) {
-    return Model.find(filter).lean();
+
+export async function searchAnimeWorks(filter = {}) {
+    return CharacterAnimeWorksModel.find(filter).lean();
+}
+
+
+export async function queryNicknames({ skip = 0, limit = 10, filter = {} } = {}) {
+    return CharacterNicknamesModel.find(filter).skip(skip).limit(limit).lean();
+}
+
+export async function countNicknames(filter = {}) {
+    return CharacterNicknamesModel.countDocuments(filter);
+}
+
+export async function searchNicknames(filter = {}) {
+    return CharacterNicknamesModel.find(filter).lean();
 }

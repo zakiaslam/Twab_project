@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const Characters
     = new mongoose.Schema(
@@ -6,17 +6,17 @@ const Characters
 
     }
 );
-const profileSchema = new mongoose.Schema({
+const CharacterNicknames = new mongoose.Schema({
     // Define your fields here
-    userId: mongoose.Schema.Types.ObjectId,
+
     // ... other fields
 });
-const character_anime = new mongoose.Schema({
+const CharacterAnimeWorks = new mongoose.Schema({
     // Define your fields here
-    userId: mongoose.Schema.Types.ObjectId,
+
     // ... other fields
 });
 // exporting the model
-module.exports = mongoose.model('characters', Characters);
-module.exports = mongoose.model('Profile', profileSchema);
-module.exports = mongoose.model('character_anime_works', character_anime);
+export const CharactersModel = mongoose.model("characters", Characters);
+export const CharacterNicknamesModel = mongoose.model("character_nicknames", CharacterNicknames);
+export const CharacterAnimeWorksModel = mongoose.model("character_anime_works", CharacterAnimeWorks);
