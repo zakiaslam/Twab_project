@@ -1,11 +1,8 @@
 function init(){
     try{
-        const button=document.getElementById("profile");
-        button.onclick = function(e) {
+        const characterNicknames=document.getElementById("character_nicknames");
+        characterNicknames.onclick =character_nicknames;
 
-            onProfile(e);
-            console.log("Submitted");
-        };
 
     }catch (e){}
     try {
@@ -14,25 +11,9 @@ function init(){
     }catch (e){}
 
 }
-function sendAxiosQuery(url, data) {
-    axios.post(url , data)
 
-        .then (function (dataR) {
-            document.getElementById('results').innerHTML= "The result is:<pre> "+JSON.stringify(dataR.data, null, 2)+"</pre>";
-            // document.getElementById('resultsDiv').style.display='block';
-            // document.getElementById('xForm').style.display='none';
-        })
-        .catch( function (response) {
-            alert (JSON.stringify(response));
-        })
-}
-function onProfile(event){
-    event.preventDefault();
-    sendAxiosQuery( '/profile',null);
-}
-function onSubmitQuery(event){
-    onSubmitAux(event, '/query')
-}
+
+
 function character_anime_works(event){
     event.preventDefault();
     window.location.href = '/character_anime_works';
@@ -54,6 +35,25 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 });
-
+function character_nicknames(event){
+    event.preventDefault();
+    console.log("character_nicknames");
+    window.location.href = '/character_nicknames';
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const searchNickname = document.getElementById("submitbtn");
+    if (searchNickname) {
+        searchNickname.onclick = Nickname;
+    }
+    function Nickname(event) {
+        try {
+            event.preventDefault();
+            const query = document.getElementById("searchInput").value;
+            window.location.href = `/character_nicknames?search=${encodeURIComponent(query)}`;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+});
 
 
