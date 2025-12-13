@@ -1,1 +1,21 @@
-<h1>hello</h1>
+<h2>Anime List</h2>
+
+{{#each animeList}}
+    <div class="anime-card">
+        <p><strong>ID:</strong> {{_id}}</p>
+        <p><strong>Username:</strong> {{username}}</p>
+        <p><strong>Anime ID:</strong> {{anime_id}}</p>
+        <p><strong>Status:</strong> {{status}}</p>
+        <p><strong>Score:</strong> {{score}}</p>
+        <p><strong>Episodes Watched:</strong> {{num_watched_episodes}}</p>
+
+        <p><strong>Rewatching:</strong>
+            {{#if is_rewatching}}
+                Yes
+            {{else}}
+                No
+            {{/if}}
+        </p>
+        <hr>
+    </div>
+{{/each}}
