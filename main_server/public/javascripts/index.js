@@ -16,7 +16,7 @@ function init(){
 
 function character_anime_works(event){
     event.preventDefault();
-    window.location.href = '/character_anime_works';
+    window.location.href = '/all';
 }
 
 // Wait until the DOM is loaded
