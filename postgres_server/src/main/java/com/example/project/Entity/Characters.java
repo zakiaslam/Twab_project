@@ -25,6 +25,25 @@ public class Characters {
     @Column(columnDefinition = "TEXT")
     private String about;
 
+    @OneToMany(
+            mappedBy = "character",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<CharacterNickname> nicknames = new HashSet<>();
+
+
+    @OneToMany(
+            mappedBy = "character",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<CharacterAnimeWorks> animeWorks = new HashSet<>();
+
     public Long getCharacterId() {
         return characterId;
     }
