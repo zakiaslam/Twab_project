@@ -1,11 +1,16 @@
 package com.example.project.Entity;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Entity
+@Table(name = "characters")
 public class Characters {
 
     @Id
@@ -13,16 +18,14 @@ public class Characters {
     private Long characterId;
 
     private String url;
-
     private String name;
+
     @Column(name = "name_kanji")
     private String nameKanji;
-
 
     private String image;
     private Long favorites;
 
-    private Long favourites;
     @Column(columnDefinition = "TEXT")
     private String about;
 
@@ -85,12 +88,12 @@ public class Characters {
         this.image = image;
     }
 
-    public Long getFavourites() {
-        return favourites;
+    public Long getFavorites() {
+        return favorites;
     }
 
-    public void setFavourites(Long favourites) {
-        this.favourites = favourites;
+    public void setFavorites(Long favorites) {
+        this.favorites = favorites;
     }
 
     public String getAbout() {
@@ -100,4 +103,22 @@ public class Characters {
     public void setAbout(String about) {
         this.about = about;
     }
+
+    public Set<CharacterNickname> getNicknames() {
+        return nicknames;
+    }
+
+    public void setNicknames(Set<CharacterNickname> nicknames) {
+        this.nicknames = nicknames;
+    }
+
+    public Set<CharacterAnimeWorks> getAnimeWorks() {
+        return animeWorks;
+    }
+
+    public void setAnimeWorks(Set<CharacterAnimeWorks> animeWorks) {
+        this.animeWorks = animeWorks;
+    }
 }
+
+
