@@ -1,6 +1,5 @@
 package com.example.project.Entity;
 
-
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -9,23 +8,23 @@ import jakarta.persistence.*;
 public class CharacterNickname {
 
     @Id
-    @Column(name = "character_mal_id")
-    private Long characterId;
+    @Column(name = "character_mal_id", insertable = false, updatable = false)
+    private Long id;
 
     @Column(name = "nickname")
     private String nickname;
-    // CharacterNickname.java
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "character_mal_id", insertable = false, updatable = false)
-    @JsonBackReference
-    private CharacterAnimeWorks character;
 
-    public Long getCharacterId() {
-        return characterId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "character_mal_id", nullable = false)
+    @JsonBackReference
+    private Characters character;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setCharacterId(Long characterId) {
-        this.characterId = characterId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNickname() {
@@ -36,12 +35,11 @@ public class CharacterNickname {
         this.nickname = nickname;
     }
 
-    public CharacterAnimeWorks getCharacter() {
+    public Characters getCharacter() {
         return character;
     }
 
-    public void setCharacter(CharacterAnimeWorks character) {
+    public void setCharacter(Characters character) {
         this.character = character;
     }
 }
-
