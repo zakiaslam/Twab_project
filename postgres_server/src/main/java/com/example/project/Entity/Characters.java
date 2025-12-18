@@ -20,6 +20,7 @@ public class Characters {
 
 
     private String image;
+    private Long favorites;
 
     private Long favourites;
     @Column(columnDefinition = "TEXT")
