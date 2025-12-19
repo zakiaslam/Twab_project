@@ -1,7 +1,6 @@
 package com.example.project.Repository;
 
-import com.example.project.Entity.Characters;
-import com.example.project.Entity.PersonDetails;
+import com.example.project.Entity.person.PersonDetails;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

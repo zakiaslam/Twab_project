@@ -1,10 +1,8 @@
 package com.example.project.services;
 
 
-import com.example.project.Entity.Characters;
-import com.example.project.Entity.PersonDetails;
+import com.example.project.Entity.person.PersonDetails;
 import com.example.project.Repository.PersonRepository;
-import com.example.project.ToDo.CharacterNicknameDTO;
 import com.example.project.ToDo.PersonToDo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class PersonService {
