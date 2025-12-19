@@ -1,12 +1,10 @@
-package com.example.project.Entity;
+package com.example.project.Entity.character;
 
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -47,6 +45,15 @@ public class Characters {
     )
     @JsonManagedReference
     private Set<CharacterAnimeWorks> animeWorks = new HashSet<>();
+
+    @OneToMany(
+            mappedBy = "character",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<Details> details = new HashSet<>();
 
     public Long getCharacterId() {
         return characterId;
@@ -118,6 +125,14 @@ public class Characters {
 
     public void setAnimeWorks(Set<CharacterAnimeWorks> animeWorks) {
         this.animeWorks = animeWorks;
+    }
+
+    public Set<Details> getDetails() {
+        return details;
+    }
+
+    public void setDetails(Set<Details> details) {
+        this.details = details;
     }
 }
 
