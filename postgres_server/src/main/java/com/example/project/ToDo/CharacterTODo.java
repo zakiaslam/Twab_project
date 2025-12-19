@@ -1,19 +1,19 @@
 package com.example.project.ToDo;
 
-public class CharacterNicknameDTO {
+public class CharacterTODo {
 
     private Long characterId;
-    private String characterName;   // from CharacterAnimeWorks
-    private String role;            // from CharacterAnimeWorks
-    private String nickname;        // from CharacterNickname
-    private String url;             // from Characters
-    private String nameKanji;       // from Characters
-    private String image;           // from Characters
-    private Long favorites;         // from Characters
-    private String about;           // from Characters
+    private String characterName;
+    private String role;
+    private String nickname;
+    private String url;
+    private String nameKanji;
+    private String image;
+    private Long favorites;
+    private String about;
 
-    // ✅ Fixed constructor
-    public CharacterNicknameDTO(
+
+    public CharacterTODo(
             Long characterId,
             String characterName,
             String role,
