@@ -8,6 +8,9 @@ import jakarta.persistence.*;
 public class PersonVoiceWorks {
 
     @Id
+    @Column(name = "character_mal_id", insertable = false, updatable = false)
+    private Long PVWId;
+
     @Column(name="person_mal_id")
     private Long personMalId;
     private String role;
