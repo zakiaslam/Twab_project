@@ -54,7 +54,7 @@ public class Characters {
             fetch = FetchType.LAZY
     )
     @JsonManagedReference
-    private Set<Details> details = new HashSet<>();
+    private Set<PersonVoiceWorks> personVoiceWorks = new HashSet<>();
 
     public Long getCharacterId() {
         return characterId;
@@ -128,12 +128,13 @@ public class Characters {
         this.animeWorks = animeWorks;
     }
 
-    public Set<Details> getDetails() {
-        return details;
+
+    public Set<PersonVoiceWorks> getPersonVoiceWorks() {
+        return personVoiceWorks;
     }
 
-    public void setDetails(Set<Details> details) {
-        this.details = details;
+    public void setPersonVoiceWorks(Set<PersonVoiceWorks> personVoiceWorks) {
+        this.personVoiceWorks = personVoiceWorks;
     }
 }
 
