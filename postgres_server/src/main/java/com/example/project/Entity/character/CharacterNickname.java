@@ -23,8 +23,8 @@ public class CharacterNickname {
         return CNId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCNId(Long CNId) {
+        this.CNId = CNId;
     }
 
     public String getNickname() {
