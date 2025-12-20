@@ -11,10 +11,11 @@ public class CharacterTODo {
     private String image;
     private Long favorites;
     private String about;
-
+    private String language;
 
     public CharacterTODo(
             Long characterId,
+
             String characterName,
             String role,
             String nickname,
@@ -22,9 +23,12 @@ public class CharacterTODo {
             String nameKanji,
             String image,
             Long favorites,
-            String about
+            String about,
+            String language
     ) {
+
         this.characterId = characterId;
+
         this.characterName = characterName;
         this.role = role;
         this.nickname = nickname;
@@ -33,6 +37,7 @@ public class CharacterTODo {
         this.image = image;
         this.favorites = favorites;
         this.about = about;
+        this.language = language;
     }
 
     // getters & setters
@@ -62,4 +67,6 @@ public class CharacterTODo {
 
     public String getAbout() { return about; }
     public void setAbout(String about) { this.about = about; }
+    public String getLanguage() { return language; }
+    public void setLanguage(String language) { this.language = language; }
 }
