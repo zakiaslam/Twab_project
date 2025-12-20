@@ -9,7 +9,7 @@ public class CharacterNickname {
 
     @Id
     @Column(name = "character_mal_id", insertable = false, updatable = false)
-    private Long id;
+    private Long CNId;
 
     @Column(name = "nickname")
     private String nickname;
