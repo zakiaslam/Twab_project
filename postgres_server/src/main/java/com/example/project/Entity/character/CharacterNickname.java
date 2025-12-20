@@ -19,8 +19,8 @@ public class CharacterNickname {
     @JsonBackReference
     private Characters character;
 
-    public Long getId() {
-        return id;
+    public Long getCNId() {
+        return CNId;
     }
 
     public void setId(Long id) {
