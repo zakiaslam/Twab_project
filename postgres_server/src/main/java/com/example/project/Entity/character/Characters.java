@@ -46,6 +46,7 @@ public class Characters {
     @JsonManagedReference
     private Set<CharacterAnimeWorks> animeWorks = new HashSet<>();
 
+
     @OneToMany(
             mappedBy = "character",
             cascade = CascadeType.ALL,
