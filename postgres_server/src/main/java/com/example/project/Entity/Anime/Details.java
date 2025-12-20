@@ -1,21 +1,18 @@
-package com.example.project.Entity.character;
+package com.example.project.Entity.Anime;
 
 
+import com.example.project.Entity.character.Characters;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
     @Table(name = "details")
     public class Details {
 
+
     @Id
-
-    private Long Id;
-
+    @Column(name = "mal_id")
+    private Long malId;
     private String title;
 
     @Column(name = "title_japanese")
@@ -84,16 +81,16 @@ import java.util.Set;
     private String streaming;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mal_id", nullable = false)
+    @JoinColumn(name = "mal_id", insertable = false, updatable = false)
     @JsonBackReference
     private Characters character;
 
-    public Long getId() {
-        return Id;
+    public Long getMalId() {
+        return malId;
     }
 
-    public void setId(Long id) {
-        Id = id;
+    public void setMalId(Long malId) {
+        this.malId = malId;
     }
 
     public String getTitle() {
