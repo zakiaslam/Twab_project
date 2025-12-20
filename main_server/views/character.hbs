@@ -26,20 +26,39 @@
 
 </div>
 
+<table class="characters-table">
+    <thead>
+    <tr>
+        <th>Rank</th>
+        <th>Character</th>
 
-
-<div class="characters-container">
+        <th>Favorites</th>
+    </tr>
+    </thead>
+    <tbody>
     {{#each characters}}
-        <div class="character-card">
-            <img src="{{this.image}}" alt="{{this.characterName}}" class="character-image"/>
-            <div class="character-info">
-                <a href="/character/{{this.characterId}}" class="character-name">{{this.characterName}}</a>
+        <tr>
+            <!-- Rank -->
+            <td>{{this.characterId}}</td>
 
-                <p class="character-role">Role: {{this.role}}</p>
-                {{#if this.nameKanji}}
-                    <p class="character-kanji">{{this.nameKanji}}</p>
-                {{/if}}
-            </div>
-        </div>
+            <!-- Character Image + Name + Kanji -->
+            <td class="character-cell">
+                <img src="{{this.image}}" alt="{{this.name}}" class="character-image"/>
+                <div class="character-names">
+                    <a href="/character/{{this.characterId}}" class="character-name">{{this.name}}</a>
+                    {{#if this.nameKanji}}
+                        <span class="character-kanji">({{this.nameKanji}})</span>
+                    {{/if}}
+                </div>
+            </td>
+
+
+
+
+            <!-- Favorites -->
+            <td>{{this.favorites}}</td>
+        </tr>
     {{/each}}
-</div>
+    </tbody>
+</table>
+
