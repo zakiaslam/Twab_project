@@ -20,6 +20,12 @@ public class PersonVoiceWorks {
     @JsonBackReference
     private Characters character;
 
+    public Long getPVWId() {
+        return PVWId;
+    }
+    public void setPVWId(Long id) {
+        this.PVWId = id;
+    }
     public Long getPersonMalId() {
         return personMalId;
     }
