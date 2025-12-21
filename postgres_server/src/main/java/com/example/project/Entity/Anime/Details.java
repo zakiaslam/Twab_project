@@ -2,8 +2,13 @@ package com.example.project.Entity.Anime;
 
 
 import com.example.project.Entity.character.Characters;
+import com.example.project.Entity.character.PersonVoiceWorks;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
     @Table(name = "details")
@@ -77,13 +82,25 @@ import jakarta.persistence.*;
     private String explicitGenres;
 
     private String licensors;
-
     private String streaming;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "mal_id", insertable = false, updatable = false)
-    @JsonBackReference
-    private Characters character;
+    @OneToMany(
+            mappedBy = "details",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<Stats> stats = new HashSet<>();
+
+    @OneToMany(
+            mappedBy = "details",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<Recommendations> recommendations = new HashSet<>();
 
     public Long getMalId() {
         return malId;
@@ -147,14 +164,6 @@ import jakarta.persistence.*;
 
     public void setScore(Double score) {
         this.score = score;
-    }
-
-    public Double getScoredBy() {
-        return scoredBy;
-    }
-
-    public void setScoredBy(Double scoredBy) {
-        this.scoredBy = scoredBy;
     }
 
     public String getStartDate() {
@@ -317,12 +326,28 @@ import jakarta.persistence.*;
         this.streaming = streaming;
     }
 
-    public Characters getCharacter() {
-        return character;
+    public Set<Stats> getStats() {
+        return stats;
     }
 
-    public void setCharacter(Characters character) {
-        this.character = character;
+    public void setStats(Set<Stats> stats) {
+        this.stats = stats;
+    }
+
+    public Set<Recommendations> getRecommendations() {
+        return recommendations;
+    }
+
+    public void setRecommendations(Set<Recommendations> recommendations) {
+        this.recommendations = recommendations;
+    }
+
+    public Double getScoredBy() {
+        return scoredBy;
+    }
+
+    public void setScoredBy(Double scoredBy) {
+        this.scoredBy = scoredBy;
     }
 }
 

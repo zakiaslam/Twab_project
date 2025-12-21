@@ -1,15 +1,14 @@
 package com.example.project.Entity.Anime;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.project.Entity.character.Characters;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
-    @Entity
+@Entity
     @Table(name = "stats")
     public class Stats {
 
         @Id
-        @Column(name = "mal_id")
+        @Column(name = "mal_id", insertable = false, updatable = false)
         private Long malId;
 
         @Column(name = "watching")
@@ -87,6 +86,11 @@ import jakarta.persistence.Table;
 
         @Column(name = "score_10_percentage")
         private Double score10Percentage;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "mal_id", nullable = false)
+    @JsonBackReference
+    private Details details;
 
         public Long getMalId() {
             return malId;
