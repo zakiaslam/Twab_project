@@ -1,5 +1,6 @@
 package com.example.project.Entity.character;
 
+import com.example.project.Entity.person.PersonDetails;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
@@ -11,7 +12,7 @@ public class PersonVoiceWorks {
     @Column(name = "character_mal_id", insertable = false, updatable = false)
     private Long PVWId;
 
-    @Column(name="person_mal_id")
+    @Column(name="person_mal_id", insertable = false, updatable = false)
     private Long personMalId;
     private String role;
     @Column(name="anime_mal_id")
@@ -23,12 +24,19 @@ public class PersonVoiceWorks {
     @JsonBackReference
     private Characters character;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "person_mal_id", nullable = false)
+    @JsonBackReference
+    private PersonDetails person;
+
     public Long getPVWId() {
         return PVWId;
     }
-    public void setPVWId(Long id) {
-        this.PVWId = id;
+
+    public void setPVWId(Long PVWId) {
+        this.PVWId = PVWId;
     }
+
     public Long getPersonMalId() {
         return personMalId;
     }
@@ -67,5 +75,13 @@ public class PersonVoiceWorks {
 
     public void setCharacter(Characters character) {
         this.character = character;
+    }
+
+    public PersonDetails getPerson() {
+        return person;
+    }
+
+    public void setPerson(PersonDetails person) {
+        this.person = person;
     }
 }

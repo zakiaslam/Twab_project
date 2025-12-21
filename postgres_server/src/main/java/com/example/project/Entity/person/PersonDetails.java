@@ -1,10 +1,13 @@
 package com.example.project.Entity.person;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.example.project.Entity.character.CharacterNickname;
+import com.example.project.Entity.character.PersonVoiceWorks;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="person_details")
@@ -42,6 +45,41 @@ public class PersonDetails {
     private String relevantLocation;
 
 
+
+    @OneToMany(
+            mappedBy = "person",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<PersonAlternateNames> personAlternateNames = new HashSet<>();
+
+    @OneToMany(
+            mappedBy = "person",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<PersonAnimeWorks> personAnimeWorks = new HashSet<>();
+
+    @OneToMany(
+            mappedBy = "person",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    @JsonManagedReference
+    private Set<PersonVoiceWorks> personVoiceWorks = new HashSet<>();
+
+    public String getGivenName() {
+        return givenName;
+    }
+
+    public void setGivenName(String givenName) {
+        this.givenName = givenName;
+    }
 
     public Long getPersonMalId() {
         return personMalId;
@@ -83,14 +121,6 @@ public class PersonDetails {
         this.name = name;
     }
 
-    public String getGivenName() {
-        return givenName;
-    }
-
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
     public String getFamilyName() {
         return familyName;
     }
@@ -121,5 +151,29 @@ public class PersonDetails {
 
     public void setRelevantLocation(String relevantLocation) {
         this.relevantLocation = relevantLocation;
+    }
+
+    public Set<PersonAlternateNames> getPersonAlternateNames() {
+        return personAlternateNames;
+    }
+
+    public void setPersonAlternateNames(Set<PersonAlternateNames> personAlternateNames) {
+        this.personAlternateNames = personAlternateNames;
+    }
+
+    public Set<PersonAnimeWorks> getPersonAnimeWorks() {
+        return personAnimeWorks;
+    }
+
+    public void setPersonAnimeWorks(Set<PersonAnimeWorks> personAnimeWorks) {
+        this.personAnimeWorks = personAnimeWorks;
+    }
+
+    public Set<PersonVoiceWorks> getPersonVoiceWorks() {
+        return personVoiceWorks;
+    }
+
+    public void setPersonVoiceWorks(Set<PersonVoiceWorks> personVoiceWorks) {
+        this.personVoiceWorks = personVoiceWorks;
     }
 }
