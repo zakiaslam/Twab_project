@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
 public interface PersonRepository extends JpaRepository<PersonDetails, Long> {
 
     @Query("SELECT c FROM PersonDetails c")
-    Page<PersonDetails> findAll(Pageable pageable);
+    Page<PersonDetails> findPerson(Pageable pageable);
 }
