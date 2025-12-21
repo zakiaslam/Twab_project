@@ -1,0 +1,68 @@
+<div id="btn">
+    <div id ="search">
+        <form id="searchForm" action="/all/" method="GET" style="display: inline-block; margin-bottom: 10px;">
+            <input type="text" id="searchInput" name="search" autocomplete="on" placeholder="Search name...">
+
+            <!--    <div id="autocomplete-list" class="autocomplete-items"></div>-->
+            <button id ="submitbtn" type="submit" class="search-btn">Search</button>
+        </form>
+
+    </div>
+
+    <!--    <div id="autocomplete-list" class="autocomplete-items"></div>-->
+    <div id="pages">
+        {{#if (gt currentPage 1)}}
+            <a class="pagination-btn" href="/person?page={{subtract currentPage 1}}&size={{pageSize}}">Previous</a>
+        {{/if}}
+
+        <span class="page-info">Page {{currentPage}} of {{totalPages}}</span>
+
+        {{#if (lt currentPage totalPages)}}
+            <a class="pagination-btn" href="/person?page={{add currentPage 1}}&size={{pageSize}}">Next</a>
+        {{/if}}
+    </div>
+
+
+
+</div>
+
+<table class="characters-table">
+    <thead>
+    <tr>
+        <th>Rank</th>
+        <th>Person</th>
+        <th>Birthday</th>
+        <th>Favorites</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#each persons}}
+        <tr>
+            <!-- Rank -->
+            <td>{{this.personMalId}}</td>
+
+            <!-- Character Image + Name + Kanji -->
+            <td class="character-cell">
+                <img src="{{this.imageUrl}}" alt="{{this.name}}" class="character-image"/>
+                <div class="character-names">
+                    <a  href="/person/{{this.personMalId}}" class="character-name">{{this.name}}</a>
+                    {{#if this.familyName}}
+                        <span class="character-kanji">({{this.familyName}})</span>
+                        <span class="character-kanji">({{this.givenName}})</span>
+
+                    {{/if}}
+                </div>
+            </td>
+
+
+
+            <td>{{formatDate this.birthday}}</td>
+          
+
+            <!-- Favorites -->
+            <td>{{this.favorites}}</td>
+        </tr>
+    {{/each}}
+    </tbody>
+</table>
+
