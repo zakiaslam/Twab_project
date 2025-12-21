@@ -12,16 +12,28 @@ function init() {
         FindById.onclick = FindnameById;
     } catch (e) {
     }
+    try {
+        const personbtn = document.getElementById("person");
+        personbtn.onclick = person;
+    } catch (e) {
+    }
+
     // document.getElementById('results').style.display='none';
     // document.getElementById('xForm').style.display='block';
+
 
 //
 //
 function character(event){
     event.preventDefault();
 
-    window.location.href = '/all';
+    window.location.href = '/characters';
 }
+    function person(event){
+        event.preventDefault();
+
+        window.location.href = '/person';
+    }
     function FindnameById(event){
         event.preventDefault();
 
