@@ -1,6 +1,6 @@
 <div id="btn">
     <div id ="search">
-        <form id="searchForm" action="/all" method="GET" style="display: inline-block; margin-bottom: 10px;">
+        <form id="searchForm" action="/all/" method="GET" style="display: inline-block; margin-bottom: 10px;">
             <input type="text" id="searchInput" name="search" autocomplete="on" placeholder="Search name...">
 
             <!--    <div id="autocomplete-list" class="autocomplete-items"></div>-->
@@ -45,7 +45,7 @@
             <td class="character-cell">
                 <img src="{{this.image}}" alt="{{this.name}}" class="character-image"/>
                 <div class="character-names">
-                    <a href="/character/{{this.characterId}}" class="character-name">{{this.name}}</a>
+                    <a  href="/character/{{this.characterId}}" class="character-name">{{this.name}}</a>
                     {{#if this.nameKanji}}
                         <span class="character-kanji">({{this.nameKanji}})</span>
                     {{/if}}
