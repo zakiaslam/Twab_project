@@ -17,6 +17,11 @@ function init() {
         personbtn.onclick = person;
     } catch (e) {
     }
+    try {
+        const Animebtn = document.getElementById("Anime");
+        Animebtn.onclick = Anime;
+    } catch (e) {
+    }
 
     // document.getElementById('results').style.display='none';
     // document.getElementById('xForm').style.display='block';
@@ -34,10 +39,10 @@ function character(event){
 
         window.location.href = '/person';
     }
-    function FindnameById(event){
+    function Anime(event){
         event.preventDefault();
 
-       console.log("Findname");
+        window.location.href = '/Anime';
     }
 //
 // // Wait until the DOM is loaded
