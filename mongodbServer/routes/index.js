@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const controller = require("../controllers/characters")
-const {ratingsData, profilesData, UserProfile} = require("../controllers/characters");
+const {ratingsData, profilesData, UserProfile, FavouriteType} = require("../controllers/characters");
 
 /* GET home page. */
 router.get('/FindByUsername/:username', async function (req, res, next) {
@@ -49,7 +49,7 @@ router.get('/profile', async function (req, res, next) {
 
 
         const results = await controller.UserProfile({ skip, limit });
-        console.log(results);
+
         res.json(results);
     } catch (err) {
         console.error(err);
@@ -58,7 +58,7 @@ router.get('/profile', async function (req, res, next) {
 });
 
 router.get('/favourite/:username', async function (req, res, next) {
-    // try {
+    try {
         let username = req.params.username;
         console.log(username);
         const page = parseInt(req.query.page) || 1;
@@ -66,13 +66,13 @@ router.get('/favourite/:username', async function (req, res, next) {
         const skip = (page - 1) * limit;
 
     //
-    //     const results = await controller.profilesData({ skip, limit, username });
-    //     console.log(results);
-    //     res.json(results);
-    // } catch (err) {
-    //     console.error(err);
-    //     res.status(500).json({ error: 'Internal server error' });
-    // }
+        const results = await controller.FavouriteType({ skip, limit, username });
+        console.log(results);
+        res.json(results);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
 });
 
 
