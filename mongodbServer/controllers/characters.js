@@ -1,4 +1,4 @@
-import {profilesModel, ratingsModel, UserProfilesModel} from '../models/characters.js';
+import {FavouriteModel, profilesModel, ratingsModel, UserProfilesModel} from '../models/characters.js';
 
 
 
@@ -24,4 +24,11 @@ export async function profilesData({ skip = 0, limit = 10,username, filter = {} 
 export async function UserProfile({ skip = 0, limit = 10, filter = {} } = {}) {
     console.log("zaki")
     return UserProfilesModel.find({}).skip(skip).limit(limit).lean();
+}
+export async function FavouriteType({ skip = 0, limit = 10,username, filter = {} } = {}) {
+    if (username) {
+        filter.username = { $regex: `^${username}$`, $options: "i" };
+    }
+    console.log("hellllllll")
+    return FavouriteModel.find(filter).skip(skip).limit(limit).lean();
 }

@@ -24,13 +24,13 @@ const profilesAnime = new mongoose.Schema({
     dropped: { type: Number, default: 0 },
     plan_to_watch: { type: Number, default: 0 },
 
-    joined: { type: Date, default: Date.now }
 });
 const favourite = new mongoose.Schema({
-    username: { type: String, required: true, unique: true },
+
 
     fav_type: { type: Date },
       id:  { type: Number, required: true },
+    username: { type: String, required: true, unique: true },
 });
 
 // exporting the model
