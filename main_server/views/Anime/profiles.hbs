@@ -5,58 +5,57 @@
             <div class="profile-header">
                 <div class="header-info">
                     <h2>{{username}}</h2>
+
+                    <a href="/users/favourite/{{username}}" class="favourite-btn">
+                        Favourite Type
+                    </a>
+
                     <p class="location">{{#if location}}{{location}}{{else}}—{{/if}}</p>
                     <p class="joined">Joined {{#if joined}}{{joined}}{{else}}—{{/if}}</p>
                 </div>
             </div>
 
-    <!-- Info Card -->
-    <div class="profile-card">
-        <h2>Profile Information</h2>
-
-        <div class="info-grid">
-            <div>
-                <span>Gender</span>
-                <p>{{#if profile.gender}}{{profile.gender}}{{else}}—{{/if}}</p>
+            <!-- Profile Info -->
+            <div class="info-section">
+                <h3>Profile Information</h3>
+                <div class="info-grid">
+                    <div>
+                        <span>Gender</span>
+                        <p>{{#if gender}}{{gender}}{{else}}—{{/if}}</p>
+                    </div>
+                    <div>
+                        <span>Birthday</span>
+                        <p>{{#if birthday}}{{birthday}}{{else}}—{{/if}}</p>
+                    </div>
+                </div>
             </div>
 
-            <div>
-                <span>Birthday</span>
-                <p>{{#if profile.birthday}}{{profile.birthday}}{{else}}—{{/if}}</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Anime Stats -->
-    <div class="profile-card">
-        <h2>Anime Statistics</h2>
-
-        <div class="stats-grid">
-            <div class="stat watching">
-                <span>Watching</span>
-                <strong>{{profile.watching}}</strong>
-            </div>
-
-            <div class="stat completed">
-                <span>Completed</span>
-                <strong>{{profile.completed}}</strong>
-            </div>
-
-            <div class="stat on-hold">
-                <span>On Hold</span>
-                <strong>{{profile.on_hold}}</strong>
-            </div>
-
-            <div class="stat dropped">
-                <span>Dropped</span>
-                <strong>{{profile.dropped}}</strong>
-            </div>
-
-            <div class="stat plan">
-                <span>Plan to Watch</span>
-                <strong>{{profile.plan_to_watch}}</strong>
+            <!-- Anime Stats -->
+            <div class="stats-section">
+                <h3>Anime Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat watching">
+                        <span>Watching</span>
+                        <strong>{{#if watching}}{{watching}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat completed">
+                        <span>Completed</span>
+                        <strong>{{#if completed}}{{completed}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat on-hold">
+                        <span>On Hold</span>
+                        <strong>{{#if on_hold}}{{on_hold}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat dropped">
+                        <span>Dropped</span>
+                        <strong>{{#if dropped}}{{dropped}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat plan">
+                        <span>Plan to Watch</span>
+                        <strong>{{#if plan_to_watch}}{{plan_to_watch}}{{else}}0{{/if}}</strong>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
+    {{/each}}
 </div>
