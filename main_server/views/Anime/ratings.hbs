@@ -16,7 +16,11 @@
 <div class="ratings-list">
     {{#each ratings}}
         <div class="rating-card">
-            <p><strong>Username:</strong> {{username}}</p>
+
+            <a href="/users/ratingsUsername/{{username}}" class="anime-name">
+                <strong>Username :</strong> {{username}}
+            </a>
+
             <p><strong>Status:</strong>
                 <span class="status
           {{#if (eq status "watching")}}watching{{/if}}

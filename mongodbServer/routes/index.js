@@ -1,0 +1,62 @@
+var express = require('express');
+var router = express.Router();
+const controller = require("../controllers/characters")
+const {ratingsData, profilesData, UserProfile} = require("../controllers/characters");
+
+/* GET home page. */
+router.get('/FindByUsername/:username', async function (req, res, next) {
+    try {
+        let username = req.params.username;
+        console.log(username);
+        const page = parseInt(req.query.page) || 1;
+        const limit = 10;
+        const skip = (page - 1) * limit;
+
+
+        const results = await controller.profilesData({ skip, limit, username });
+        console.log(results);
+        res.json(results);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+router.get('/ratings/:id', async function (req, res, next) {
+    try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = 200;
+        const skip = (page - 1) * limit;
+        const anime_id = req.params.id;
+
+        const results = await controller.FindRatingsById({ skip, limit, anime_id });
+        console.log(results);
+        res.json(results);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+router.get('/profile', async function (req, res, next) {
+    try {
+
+        // let username = req.params.username;
+        // console.log(username);
+        const page = parseInt(req.query.page) || 1;
+        const limit = 10;
+        const skip = (page - 1) * limit;
+
+
+        const results = await controller.UserProfile({ skip, limit });
+        console.log(results);
+        res.json(results);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+
+module.exports = router;

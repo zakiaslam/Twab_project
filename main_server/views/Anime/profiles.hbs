@@ -1,0 +1,63 @@
+<div class="profile-page">
+
+
+    <div class="profile-header">
+
+
+        <div class="header-info">
+            <h1>{{profile.username}}</h1>
+            <p class="location">{{profile.location}}</p>
+            <p class="joined">Joined {{profile.joined}}</p>
+        </div>
+    </div>
+
+    <!-- Info Card -->
+    <div class="profile-card">
+        <h2>Profile Information</h2>
+
+        <div class="info-grid">
+            <div>
+                <span>Gender</span>
+                <p>{{#if profile.gender}}{{profile.gender}}{{else}}—{{/if}}</p>
+            </div>
+
+            <div>
+                <span>Birthday</span>
+                <p>{{#if profile.birthday}}{{profile.birthday}}{{else}}—{{/if}}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anime Stats -->
+    <div class="profile-card">
+        <h2>Anime Statistics</h2>
+
+        <div class="stats-grid">
+            <div class="stat watching">
+                <span>Watching</span>
+                <strong>{{profile.watching}}</strong>
+            </div>
+
+            <div class="stat completed">
+                <span>Completed</span>
+                <strong>{{profile.completed}}</strong>
+            </div>
+
+            <div class="stat on-hold">
+                <span>On Hold</span>
+                <strong>{{profile.on_hold}}</strong>
+            </div>
+
+            <div class="stat dropped">
+                <span>Dropped</span>
+                <strong>{{profile.dropped}}</strong>
+            </div>
+
+            <div class="stat plan">
+                <span>Plan to Watch</span>
+                <strong>{{profile.plan_to_watch}}</strong>
+            </div>
+        </div>
+    </div>
+
+</div>

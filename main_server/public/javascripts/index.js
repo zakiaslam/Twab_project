@@ -22,6 +22,11 @@ function init() {
         Animebtn.onclick = Anime;
     } catch (e) {
     }
+    try {
+        const Profilebtn = document.getElementById("Profile");
+        Profilebtn.onclick = Profile;
+    } catch (e) {
+    }
 
     // document.getElementById('results').style.display='none';
     // document.getElementById('xForm').style.display='block';
@@ -43,6 +48,11 @@ function character(event){
         event.preventDefault();
 
         window.location.href = '/Anime';
+    }
+    function Profile(event){
+        event.preventDefault();
+
+        window.location.href = '/users/profile';
     }
 //
 // // Wait until the DOM is loaded
