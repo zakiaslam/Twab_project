@@ -1,15 +1,14 @@
-<div class="profile-page">
-
-
-    <div class="profile-header">
-
-
-        <div class="header-info">
-            <h1>{{profile.username}}</h1>
-            <p class="location">{{profile.location}}</p>
-            <p class="joined">Joined {{profile.joined}}</p>
-        </div>
-    </div>
+<div class="profiles-page">
+    {{#each profiles}}
+        <div class="profile-card">
+            <!-- Header -->
+            <div class="profile-header">
+                <div class="header-info">
+                    <h2>{{username}}</h2>
+                    <p class="location">{{#if location}}{{location}}{{else}}—{{/if}}</p>
+                    <p class="joined">Joined {{#if joined}}{{joined}}{{else}}—{{/if}}</p>
+                </div>
+            </div>
 
     <!-- Info Card -->
     <div class="profile-card">
