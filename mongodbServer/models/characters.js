@@ -39,3 +39,4 @@ export const ratingsModel = mongoose.model("ratings", ratings_data);
 export const profilesModel = mongoose.model("profiles", profilesAnime);
 
 export const UserProfilesModel = mongoose.model("profiles", profilesAnime);
+export const FavouriteModel = mongoose.model("favs", favourite);
