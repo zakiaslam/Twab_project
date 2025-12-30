@@ -25,10 +25,13 @@ export async function UserProfile({ skip = 0, limit = 10, filter = {} } = {}) {
     console.log("zaki")
     return UserProfilesModel.find({}).skip(skip).limit(limit).lean();
 }
+export async function UserProfileCount({ skip = 0, limit = 10, filter = {} } = {}) {
+
+    return UserProfilesModel.countDocuments().exec();
+}
 export async function FavouriteType({ skip = 0, limit = 10,username, filter = {} } = {}) {
     if (username) {
         filter.username = { $regex: `^${username}$`, $options: "i" };
     }
-    console.log("hellllllll")
     return FavouriteModel.find(filter).skip(skip).limit(limit).lean();
 }
