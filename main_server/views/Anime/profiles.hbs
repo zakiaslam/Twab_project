@@ -1,3 +1,17 @@
+
+<div id="pages">
+    {{#if (gt currentPage 1)}}
+        <a class="pagination-btn" href="/users/profile?page={{subtract currentPage 1}}&size={{pageSize}}">Previous</a>
+    {{/if}}
+
+    <span class="page-info">Page {{currentPage}} of {{totalPages}}</span>
+
+    {{#if (lt currentPage totalPages)}}
+        <a class="pagination-btn" href="/users/profile?page={{add currentPage 1}}&size={{pageSize}}">Next</a>
+    {{/if}}
+</div>
+
+
 <div class="profiles-page">
     {{#each profiles}}
         <div class="profile-card">
