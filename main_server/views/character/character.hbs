@@ -12,13 +12,13 @@
     <!--    <div id="autocomplete-list" class="autocomplete-items"></div>-->
     <div id="pages">
         {{#if (gt currentPage 1)}}
-            <a class="pagination-btn" href="/all?page={{subtract currentPage 1}}&size={{pageSize}}">Previous</a>
+            <a class="pagination-btn" href="/characters?page={{subtract currentPage 1}}&size={{pageSize}}">Previous</a>
         {{/if}}
 
         <span class="page-info">Page {{currentPage}} of {{totalPages}}</span>
 
         {{#if (lt currentPage totalPages)}}
-            <a class="pagination-btn" href="/all?page={{add currentPage 1}}&size={{pageSize}}">Next</a>
+            <a class="pagination-btn" href="/characters?page={{add currentPage 1}}&size={{pageSize}}">Next</a>
         {{/if}}
     </div>
 
