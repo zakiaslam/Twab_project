@@ -1,4 +1,5 @@
 <div class="anime-page">
+
     <div class="anime-detail-card">
 
         <!-- LEFT SIDEBAR -->
@@ -33,6 +34,7 @@
 
         <!-- RIGHT CONTENT -->
         <main class="anime-content">
+            <a href="{{backUrl}}" class="btn back-btn">← Back</a>
             <h1>{{anime.title}}</h1>
             {{#if anime.titleJapanese}}
                 <span class="anime-kanji">({{anime.titleJapanese}})</span>
