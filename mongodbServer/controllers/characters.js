@@ -12,6 +12,9 @@ export async function FindRatingsById({ skip = 0, limit = 10, anime_id,filter = 
 
     return ratingsModel.find(filter).skip(skip).limit(limit).lean();
 }
+export async function RatingsCount(anime_id) {
+    return ratingsModel.countDocuments({ anime_id }).exec();
+}
 
 
 
