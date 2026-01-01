@@ -1,0 +1,71 @@
+<div class="character-page">
+    <a href="{{backUrl}}" class="btn back-btn">← Back</a>
+    <div class="character-detail-card">
+
+        <!-- LEFT COLUMN -->
+        <div class="character-detail-image">
+            <img src="{{person.imageUrl}}" alt="{{person.name}}">
+
+            <div class="character-side-info">
+                <h2>{{person.name}}</h2>
+
+                {{#if person.familyName}}
+                    <div class="character-detail-kanji">
+                        {{person.familyName}} {{person.givenName}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="character-detail-info">
+
+            <h1>{{person.name}}</h1>
+
+            <p><strong>Birthday:</strong> {{formatDate person.birthday}}</p>
+
+            <p><strong>Favorites:</strong> {{person.favorites}}</p>
+            <p><strong>Location:</strong> {{person.relevantLocation}}</p>
+
+            {{#if person.personVoiceWorks.length}}
+                <h4>Voice Works</h4>
+                <ul>
+                    {{#each person.personVoiceWorks}}
+                        <li>
+                            Anime ID: {{animeMalId}} |
+                            Role: {{role}} |
+                            Language: {{language}}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+
+            {{#if person.personAnimeWorks.length}}
+                <h4>Anime Works</h4>
+                <ul>
+                    {{#each person.personAnimeWorks}}
+                        <li>
+                            Anime ID: {{AnimeId}} |
+                            Position: {{position}}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+
+            <p>
+                <a href="{{person.url}}" target="_blank">
+                    View on MyAnimeList
+                </a>
+            </p>
+
+            {{#if person.websiteUrl}}
+                <p>
+                    <a href="{{person.websiteUrl}}" target="_blank">
+                        Official Website
+                    </a>
+                </p>
+            {{/if}}
+        </div>
+
+    </div>
+</div>
