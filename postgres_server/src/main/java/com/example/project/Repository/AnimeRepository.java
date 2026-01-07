@@ -16,6 +16,9 @@ public interface AnimeRepository extends JpaRepository<Details, Long> {
 //
     @Query("SELECT d FROM Details d  where  d.malId=:id")
     List<Details> findAnimeById(Long id);
+
+    @Query("SELECT d FROM Details d  where  d.title=:title")
+    List<Details> FindAnimeByTitle(String title);
 //
 //    @Query("SELECT d FROM Details d  where  d.title=:title")
 //    List<Details> findAnimeByName(String title);

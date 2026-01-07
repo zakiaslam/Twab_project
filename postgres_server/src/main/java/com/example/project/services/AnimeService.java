@@ -29,7 +29,9 @@ import java.util.List;
         public List<Details> getAnimeById(Long Id) {
             return animeRepository.findAnimeById(Id);
         }
-//
+      public List<Details> getAnimeByTitle(String title) {
+        return animeRepository.FindAnimeByTitle(title);
+    }
 //        public List<Details> getAnimeByName(String name) {
 //            return animeService.findAnimeByName(name);
 //        }
