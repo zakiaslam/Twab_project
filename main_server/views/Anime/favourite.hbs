@@ -1,0 +1,57 @@
+<div class="favourites-page">
+    {{#if username}}
+        <h1 class="page-title">
+            Favourites of <span class="username">{{username}}</span>
+        </h1>
+    {{else}}
+        <h1 class="page-title">Favourites</h1>
+    {{/if}}
+    <a href="{{backUrl}}" class="btn back-btn">← Back</a>
+
+
+    {{#if favourites.length}}
+        <div class="favourites-grid">
+            {{#each favourites}}
+                <div class="favourite-card">
+                    <div class="fav-header">
+                        <span class="fav-type {{fav_type}}">
+                            {{fav_type}}
+                        </span>
+                    </div>
+
+                    <div class="fav-body">
+
+
+                        <p class="fav-id">
+                            <strong>ID:</strong> {{id}}
+                        </p>
+                    </div>
+
+                    <div class="fav-actions">
+                        {{#if (eq fav_type "anime")}}
+                            <a href="/anime/{{id}}" class="view-btn">View Anime</a>
+                        {{/if}}
+
+                        {{#if (eq fav_type "character")}}
+                            <a href="/character/{{id}}" class="view-btn">View Character</a>
+                        {{/if}}
+
+                        {{#if (eq fav_type "people")}}
+                            <a href="/person/{{id}}" class="view-btn">View Person</a>
+                        {{/if}}
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+    {{else}}
+        <div class="empty-state-wrapper">
+            <div class="empty-icon">😔</div>
+            <h2 class="empty-title">No Favourites Found</h2>
+            <p class="empty-text">
+                Looks like {{username}} hasn't added any favourites yet.
+
+            </p>
+            <a href="{{backUrl}}" class="btn back-btn">← Go Back</a>
+        </div>
+    {{/if}}
+</div>

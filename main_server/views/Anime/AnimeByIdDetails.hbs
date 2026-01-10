@@ -1,0 +1,100 @@
+<div class="anime-page">
+
+    <div class="anime-detail-card">
+
+        <!-- LEFT SIDEBAR -->
+        <aside class="anime-sidebar">
+            <img src="{{anime.imageUrl}}" alt="{{anime.title}}" />
+
+            <div class="anime-sidebar-info">
+                <h2>{{anime.title}}</h2>
+                {{#if anime.titleJapanese}}
+                    <div class="anime-kanji">{{anime.titleJapanese}}</div>
+                {{/if}}
+
+                <div class="info-block">
+                    <p><strong>Type:</strong> {{anime.type}}</p>
+                    <p><strong>Status:</strong> {{anime.status}}</p>
+                    <p><strong>Episodes:</strong> {{anime.episodes}}</p>
+                    <p><strong>Season:</strong> {{anime.season}} {{anime.year}}</p>
+                    <p><strong>Studios:</strong> {{anime.studios}}</p>
+                    <p><strong>Genres:</strong> {{anime.genres}}</p>
+                    <p><strong>Favorites:</strong> {{anime.favorites}}</p>
+                    <p class="score">
+                        ⭐ {{anime.score}}
+                        <span>({{anime.scoredBy}} users)</span>
+                    </p>
+                </div>
+
+                <a href="{{anime.url}}" target="_blank" class="mal-link">
+                    View on MyAnimeList
+                </a>
+            </div>
+        </aside>
+
+        <!-- RIGHT CONTENT -->
+        <main class="anime-content">
+            <a href="{{backUrl}}" class="btn back-btn">← Back</a>
+            <h1>{{anime.title}}</h1>
+            {{#if anime.titleJapanese}}
+                <span class="anime-kanji">({{anime.titleJapanese}})</span>
+            {{/if}}
+
+
+            <a class="rating-btn" href="/users/ratings/{{anime.malId}}">
+                ⭐ View Ratings
+            </a>
+
+
+            <div id="ratings-box" class="ratings-box hidden">
+                <h3>User Ratings</h3>
+                <div id="ratings-content">Loading...</div>
+            </div>
+
+            <section class="section">
+                <h3>Synopsis</h3>
+                <p class="synopsis">{{anime.synopsis}}</p>
+            </section>
+
+            {{#if anime.stats.length}}
+                {{#each anime.stats}}
+                    <section class="section">
+                        <h3>Statistics</h3>
+
+                        <div class="stats-grid">
+                            <div><strong>Watching</strong><span>{{watching}}</span></div>
+                            <div><strong>Completed</strong><span>{{completed}}</span></div>
+                            <div><strong>On Hold</strong><span>{{onHold}}</span></div>
+                            <div><strong>Dropped</strong><span>{{dropped}}</span></div>
+                            <div><strong>Plan to Watch</strong><span>{{planToWatch}}</span></div>
+                            <div><strong>Total</strong><span>{{total}}</span></div>
+                        </div>
+
+                        <h4>Score Distribution</h4>
+                        <ul class="score-list">
+                            <li>10 ⭐ {{score10Percentage}}%</li>
+                            <li>9 ⭐ {{score9Percentage}}%</li>
+                            <li>8 ⭐ {{score8Percentage}}%</li>
+                            <li>7 ⭐ {{score7Percentage}}%</li>
+                        </ul>
+                    </section>
+                {{/each}}
+            {{/if}}
+
+            {{#if anime.recommendations.length}}
+                <section class="section">
+                    <h3>Recommendations</h3>
+                    <ul class="recommendations">
+                        {{#each anime.recommendations}}
+                            <li>
+                                <a href="/anime/{{RMalId}}">Anime #{{RMalId}}</a>
+                            </li>
+                        {{/each}}
+                    </ul>
+                </section>
+            {{/if}}
+
+        </main>
+
+    </div>
+</div>

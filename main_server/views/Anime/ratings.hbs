@@ -1,0 +1,30 @@
+
+
+
+<a href="{{backUrl}}" class="btn back-btn">← Back</a>
+<div class="ratings-list">
+    {{#each ratings}}
+        <div class="rating-card">
+
+            <a href="/users/ratingsUsername/{{username}}" class="anime-name">
+                <strong>Username :</strong> {{username}}
+            </a>
+
+            <p><strong>Status:</strong>
+                <span class="status
+          {{#if (eq status "watching")}}watching{{/if}}
+                    {{#if (eq status "completed")}}completed{{/if}}
+                    {{#if (eq status "plan_to_watch")}}plan-to-watch{{/if}}
+                    {{#if (eq status "dropped")}}dropped{{/if}}
+                    {{#if (eq status "on_hold")}}on-hold{{/if}}
+        ">
+                    {{status}}
+                </span>
+            </p>
+            <p><strong>Score:</strong> <span class="score">⭐ {{score}}</span></p>
+            <p><strong>Episodes Watched:</strong> {{num_watched_episodes}}</p>
+            <p><strong>Rewatching:</strong> {{#if is_rewatching}}Yes{{else}}No{{/if}}</p>
+            <p><strong>ID:</strong> {{anime_id}}</p>
+        </div>
+    {{/each}}
+</div>

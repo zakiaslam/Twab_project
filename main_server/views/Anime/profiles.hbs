@@ -1,0 +1,85 @@
+<div id="btn">
+<div id ="search">
+    <form id="searchForm" action="/users/profile" method="GET" style="display: inline-block; margin-bottom: 10px;">
+        <input type="text" id="searchInput" name="search" autocomplete="on" placeholder="Search Profile name...">
+
+        <!--    <div id="autocomplete-list" class="autocomplete-items"></div>-->
+        <button id ="profileSearchbtn" type="submit" class="search-btn">Search</button>
+    </form>
+
+</div>
+<div id="pages">
+    {{#if (gt currentPage 1)}}
+        <a class="pagination-btn" href="/users/profile?page={{subtract currentPage 1}}&size={{pageSize}}">Previous</a>
+    {{/if}}
+
+    <span class="page-info">Page {{currentPage}} of {{totalPages}}</span>
+
+    {{#if (lt currentPage totalPages)}}
+        <a class="pagination-btn" href="/users/profile?page={{add currentPage 1}}&size={{pageSize}}">Next</a>
+    {{/if}}
+</div>
+</div>
+<a href="{{backUrl}}" class="btn back-btn">← Back</a>
+<div class="profiles-page">
+
+    {{#each profiles}}
+        <div class="profile-card">
+            <!-- Header -->
+            <div class="profile-header">
+                <div class="header-info">
+                    <h2>{{username}}</h2>
+
+                    <a href="/users/favourite/{{username}}" class="favourite-btn">
+                        Favourite Type
+                    </a>
+
+                    <p class="location">{{#if location}}{{location}}{{else}}—{{/if}}</p>
+                    <p class="joined">Joined {{#if joined}}{{joined}}{{else}}—{{/if}}</p>
+                </div>
+            </div>
+
+            <!-- Profile Info -->
+            <div class="info-section">
+                <h3>Profile Information</h3>
+                <div class="info-grid">
+                    <div>
+                        <span>Gender</span>
+                        <p>{{#if gender}}{{gender}}{{else}}—{{/if}}</p>
+                    </div>
+                    <div>
+                        <span>Birthday</span>
+                        <p>{{#if birthday}}{{birthday}}{{else}}—{{/if}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Anime Stats -->
+            <div class="stats-section">
+                <h3>Anime Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat watching">
+                        <span>Watching</span>
+                        <strong>{{#if watching}}{{watching}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat completed">
+                        <span>Completed</span>
+                        <strong>{{#if completed}}{{completed}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat on-hold">
+                        <span>On Hold</span>
+                        <strong>{{#if on_hold}}{{on_hold}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat dropped">
+                        <span>Dropped</span>
+                        <strong>{{#if dropped}}{{dropped}}{{else}}0{{/if}}</strong>
+                    </div>
+                    <div class="stat plan">
+                        <span>Plan to Watch</span>
+                        <strong>{{#if plan_to_watch}}{{plan_to_watch}}{{else}}0{{/if}}</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</div>
