@@ -38,3 +38,10 @@ export async function FavouriteType({ skip = 0, limit = 10,username, filter = {}
     }
     return FavouriteModel.find(filter).skip(skip).limit(limit).lean();
 }
+
+export async function FindProfile({ skip = 0, limit = 10,username, filter = {} } = {}) {
+    if (username) {
+        filter.username = { $regex: `^${username}$`, $options: "i" };
+    }
+    return profilesModel.find(filter).skip(skip).limit(limit).lean();
+}
